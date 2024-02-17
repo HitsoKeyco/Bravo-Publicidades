@@ -25,9 +25,9 @@ const Computers = (isMobile) => {
   });
 
   return (
-    // <mesh rotation={[0, rotationAngle, 0]} position={[0, 2, 0]}></mesh>
+    
     <group ref={groupRef} position={[0, -1, 0]} rotation={[0, rotationAngle, 0]}>
-      <mesh position={isMobile ? [0, 0, 0] : [0, 0, 0]}>
+      <mesh position={isMobile ? [0, 0, 0] : [0, 0, 0]} receiveShadow>
         <directionalLight position={[0, 2, 0]} intensity={2} color="white" />
         <pointLight position={[2, 1, -1.5]} intensity={50} color="#A7FF83" distance={15} />
         <pointLight position={[-3, 1, -1.5]} intensity={100} color="#00FFC2" distance={15} />
