@@ -19,6 +19,8 @@ const Computers = (isMobile) => {
   useHelper(pointLight_2, PointLightHelper, 1, 'white');
   useHelper(pointLight_3, PointLightHelper, 1, 'white');
 
+  
+
   // Define la función para actualizar la rotación en cada cuadro de animación
   useFrame(() => {
     setRotationAngle((prevAngle) => prevAngle + 0.003);
@@ -27,10 +29,10 @@ const Computers = (isMobile) => {
   return (
     
     <group ref={groupRef} position={[0, -1, 0]} rotation={[0, rotationAngle, 0]}>
-      <mesh position={isMobile ? [0, 0, 0] : [0, 0, 0]} receiveShadow>
-        <directionalLight position={[0, 2, 0]} intensity={2} color="white" />
-        <pointLight position={[2, 1, -1.5]} intensity={50} color="#A7FF83" distance={15} />
-        <pointLight position={[-3, 1, -1.5]} intensity={100} color="#00FFC2" distance={15} />
+      <mesh position={isMobile ? [0, 0, 0] : [0, 0, 0]} >
+        <directionalLight position={[0, 3, 0]} intensity={55}  color="#3C3C3C"  />
+        <pointLight position={[2, 1, -1.5]} intensity={10} color="#A7FF83" distance={15} />
+        <pointLight position={[-3, 1, -1.5]} intensity={10} color="#00FFC2" distance={15} />
         <pointLight position={[1.8, 0.4, -1]} intensity={10} color="yellow" distance={15} />
 
         <primitive
@@ -69,7 +71,7 @@ const ComputersCanvas = () => {
   }, []);
 
   return (
-    <Canvas frameloop="demand" shadows camera={{ position: [10, 5, 0], fov: 25 }} gl={{ preserveDrawingBuffer: true }}  >
+    <Canvas frameloop="demand" shadows='true' camera={{ position: [10, 5, 0], fov: 25 }} gl={{ preserveDrawingBuffer: true }}  >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           enableZoom={false}
